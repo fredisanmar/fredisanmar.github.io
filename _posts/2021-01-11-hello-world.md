@@ -7,7 +7,6 @@ tags: [firstpost, presentacion]
 toc:  false
 ---
 **!!Bienvenidos¡¡**, este es el primer post del blog.
-
 ---
 
 ---
