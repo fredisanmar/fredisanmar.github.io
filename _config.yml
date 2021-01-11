@@ -1,8 +1,17 @@
-theme: jekyll-theme-cayman
+#theme: jekyll-theme-cayman
+remote_theme             : "mmistakes/minimal-mistakes@4.15.1"
 layout: home
 tagline: hola
 title: fr3d1s4nm4r
 
+#site author
+author:
+  name: "fr3d1s4nm4r"
+  location: "Madrid"
+  email: "fr3d1s4nm4r@gmail.com"
+
+#conversions
+markdown: kramdown
 
 
 
