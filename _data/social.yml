@@ -3,7 +3,7 @@
   icon: fas fa-envelope
 - title: Twitter
   url: https://twitter.com/vszhub
-  icon: htblogo.png
+  logo: htblogo.png
 - title: GitHub
   url: https://github.com/fredisanmar
   icon: fab fa-github
