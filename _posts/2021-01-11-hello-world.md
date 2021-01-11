@@ -8,6 +8,7 @@ toc:  false
 ---
 **!!Bienvenidos¡¡**, este es el primer post del blog.
 ---
+
 ---
 En los posts voy a intentar tratar temas relacionados tanto con competiciones CTF, como con la plataforma the hackthebox y técnicas interesantes de cara a red team.
 
