@@ -1,8 +1,8 @@
 - title: Email
   url: mailto://fr3d1s4nm4rb@gmail.com
   icon: fas fa-envelope
-- title: Twitter
-  url: https://twitter.com/vszhub
+- title: hackthebox
+  url: https://www.hackthebox.eu/profile/231883
   logo: _data/htblogo.png
 - title: GitHub
   url: https://github.com/fredisanmar
