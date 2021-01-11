@@ -4,6 +4,7 @@ description: CTFs, Hackthebox y temas relacionados con red teaming
 url: https://fredisanmar.github.io/
 paginate: 5
 permalink: pretty
+avatar: logo.jpeg
 
 # Gems
 plugins:
