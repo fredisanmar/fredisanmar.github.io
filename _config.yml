@@ -1,7 +1,7 @@
 # Setup
-title: Not Pure Poole
-description: A simple, beautiful, and powerful Jekyll theme for blogs
-url: https://vszhub.github.io
+title: Home
+description: CTFs, Hackthebox y temas relacionados con red teaming
+#url: 
 avatar: /avatar.jpeg
 paginate: 5
 permalink: pretty
@@ -28,17 +28,17 @@ exclude:
   - not-pure-poole.gemspec
 
 # Optimize Jekyl SEO Tag
-twitter:
-  username: vszhub
-  card: summary
+#twitter:
+#  username: vszhub
+#  card: summary
 logo: logo.png
 social:
-  name: Songzi Vong
+  name: fr3d1s4nm4r
   links:
-    - https://twitter.com/vszhub
-    - https://github.com/vszhub
-google_site_verification: xxxxx
-lang: en
+    - https://www.hackthebox.eu/profile/231883
+    - https://github.com/fredisanmar
+#google_site_verification: xxxxx
+#lang: en
 
 sass:
   sass_dir: _sass
@@ -54,6 +54,6 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Songzi Vong
-  url: https://github.com/vszhub/
-  email: vszhub@gmail.com
+  name: fr3d1s4nm4r
+  url: https://github.com/fredisanmar
+  email: fr3d1s4nm4r@gmail.com
