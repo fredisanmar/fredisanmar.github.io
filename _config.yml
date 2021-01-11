@@ -1,5 +1,5 @@
-#theme: jekyll-theme-cayman
-remote_theme: mmistakes/minimal-mistakes@4.15.1
+theme: jekyll-theme-cayman
+#remote_theme: mmistakes/minimal-mistakes@4.15.1
 
 tagline: hola
 title: fr3d1s4nm4r
