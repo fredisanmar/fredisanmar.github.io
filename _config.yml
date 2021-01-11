@@ -28,9 +28,6 @@ exclude:
   - not-pure-poole.gemspec
 
 # Optimize Jekyl SEO Tag
-#twitter:
-#  username: vszhub
-#  card: summary
 logo: logo.png
 social:
   name: fr3d1s4nm4r
