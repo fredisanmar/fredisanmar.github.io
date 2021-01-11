@@ -9,9 +9,10 @@ tagline: hola
 title: fr3d1s4nm4r
 
 #site author
-title: Email
-  url: mailto:fr3d1s4nm4r@gmail.com
-  icon: fas fa-envelope
+- title: Blog
+  url: /
+- title: About
+  url: /about/
 
 
 
