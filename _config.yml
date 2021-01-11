@@ -5,7 +5,7 @@ description: CTFs, Hackthebox y temas relacionados con red teaming
 avatar: /avatar.jpeg
 paginate: 5
 permalink: pretty
-cover_image: /bg.jpeg
+#cover_image: /bg.jpeg
 
 # Gems
 plugins:
@@ -28,7 +28,7 @@ exclude:
   - not-pure-poole.gemspec
 
 # Optimize Jekyl SEO Tag
-logo: logo.png
+
 social:
   name: fr3d1s4nm4r
   links:
