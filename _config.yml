@@ -1,20 +1,19 @@
-#theme: jekyll-theme-dinky
-#remote_theme: mmistakes/minimal-mistakes@4.15.1
-
 plugins:
   - jekyll-remote-theme
 
 remote_theme: vszhub/not-pure-poole
 
+permalink: pretty
 
 tagline: hola
 title: fr3d1s4nm4r
 
 #site author
-author:
-  name: "fr3d1s4nm4r"
-  location: "Madrid"
-  email: "fr3d1s4nm4r@gmail.com"
+title: Email
+  url: mailto://fr3d1s4nm4r@gmail.com
+  icon: fas fa-envelope
+
+
 
 #conversions
 markdown: kramdown
@@ -22,14 +21,18 @@ markdown: kramdown
 
 
 
-#-----rss share------#
-share-links-active:
-  twitter: true
-  facebook: true
-  linkedin: true
-  vk: false
 
-
+# Optimize Jekyll
+exclude:
+  - .editorconfig
+  - .git
+  - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+  - scripts/
+  - not-pure-poole.gemspec
 
 
 
