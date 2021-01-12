@@ -27,9 +27,9 @@ exclude:
   - not-pure-poole.gemspec
 
 # Optimize Jekyl SEO Tag
-twitter:
-  username: fr3d1s4nm4r
-  card: summary
+#twitter:
+#  username: fr3d1s4nm4r
+#  card: summary
 logo: logo.png
 social:
   name: fr3d1s4nm4r
