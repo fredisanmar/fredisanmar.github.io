@@ -7,7 +7,9 @@ tags: [tools, herramienta, python, code]
 toc:  false
 ---
 
-En este post voy a presentar la herramienta `tcpScanner.py`. La herramienta es un escaner de puertos que implementa multithreading.
+En este post voy a presentar la herramienta `tcpScanner.py`. 
+
+La herramienta es un escaner de puertos que implementa multithreading.
 ```python
 # coding=utf-8
 
