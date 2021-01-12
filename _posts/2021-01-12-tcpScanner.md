@@ -7,7 +7,7 @@ tags: [tools, herramienta, python, code]
 toc:  false
 ---
 
-En este post voy a presentar la herramienta `tcpScanner.py`. 
+"En este post voy a presentar la herramienta" `"tcpScanner.py"`"."
 
 La herramienta es un escaner de puertos que implementa multithreading.
 ```python
