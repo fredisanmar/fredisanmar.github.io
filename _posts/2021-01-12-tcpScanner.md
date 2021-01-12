@@ -118,6 +118,6 @@ main(mode)
 ## Uso de la herramienta.
 Esta herramienta hace uso de la libreria argparse de python, por lo que la entrada de datos se parsea automaticamente.
 Las opciones disponibles son:
-* IP: La dirección IP se introduce con la opción ```-i o --IP```. Por defecto la dirección IP está seteada a 127.0.0.1
+* IP: La dirección IP se introduce con la opción `-i o --IP`. Por defecto la dirección IP está seteada a 127.0.0.1
 * Puertos: Los puertos a escanear se setean con la opción -p o --puertos. Por defecto los puertos a escanear esán seteados para escanear todos los puertos.
 * Threads: El número de threads o tareas se setean con la opción -t o --threads. Por defecto el numero de threads está seteado a 10.
