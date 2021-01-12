@@ -10,15 +10,15 @@ title: About
 
 ---
 
-* Jun 2018 - Jul 2018: Administrador de sistemas en Mnemo
-* Mar 2019 - Jun 2019: Becario L1 CyberSecurity operator(EDC) en Deloitte
+* Jun 2018 - Jul 2018: Administrador de sistemas en Mnemo.
+* Mar 2019 - Jun 2019: Becario L1 CyberSecurity operator(EDC) en Deloitte.
 
 ---
 **Charlas**
 
 ---
 
-* 05 Oct 2018: charla de formacion en allianz sobre ciberespionaje
+* 05 Oct 2018: Charla de formación en Allianz sobre ciberespionaje.
 
 ---
 **Social**
