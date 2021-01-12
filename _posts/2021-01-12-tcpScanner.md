@@ -10,6 +10,9 @@ toc:  false
 En este post voy a presentar la herramienta `tcpScanner.py`.
 
 La herramienta es un escaner de puertos que implementa multithreading.
+
+---
+
 ```python
 # coding=utf-8
 
@@ -116,6 +119,9 @@ def main(mode):
 main(mode)
 ```
 ## Uso de la herramienta.
+
+---
+
 Esta herramienta hace uso de la libreria argparse de python, por lo que la entrada de datos se parsea automaticamente.
 Las opciones disponibles son:
 * IP: La dirección IP se introduce con la opción `-i o --IP`. Por defecto la dirección IP está seteada a 127.0.0.1
