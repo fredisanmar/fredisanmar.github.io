@@ -118,5 +118,6 @@ def main(mode):
     except (KeyboardInterrupt, SystemExit):
         exit
 
-main(mode)```
+main(mode)
+```
 
