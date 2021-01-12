@@ -34,10 +34,6 @@ args = parser.parse_args()
 print_lock = threading.Lock()  # thead lock para que workers funcionen mejor
 queue = Queue()
 
-#ports = args.puertos  # guardo argumento puertos en ports para procesarlo"""
-# minport, maxport = ports.split("-")  # spliteo en dos vars ports"""
-# minport = int(minport)  # seteo minport y maxport como ints para range"""
-# maxport = int(maxport)"""
 
 print("████████╗ ██████╗██████╗       ███████╗ ██████╗ █████╗ ███╗   ██╗")
 print("╚══██╔══╝██╔════╝██╔══██╗      ██╔════╝██╔════╝██╔══██╗████╗  ██║")
@@ -47,7 +43,6 @@ print("   ██║   ╚██████╗██║           ████�
 print("   ╚═╝    ╚═════╝╚═╝           ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝")
 global var
 var = args.puertos
-#split = var.split(",")
 global mode
 mode = ''
 
