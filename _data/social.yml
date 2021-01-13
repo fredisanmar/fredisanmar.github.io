@@ -1,6 +1,9 @@
 - title: Email
   url: mailto://fr3d1s4nm4r@gmail.com
   icon: fas fa-envelope
+- title: twitter
+  url: https://twitter.com/fr3d1s4nm4r
+  icon: fab fa-twitter
 - title: hackthebox
   url: https://www.hackthebox.eu/profile/231883
   logo: _data/htblogo.png
