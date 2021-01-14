@@ -37,7 +37,7 @@ social:
     - https://www.hackthebox.eu/profile/231883
     - https://github.com/fredisanmar
 google_site_verification: rs9Q35s9q6im0kqyyEAXQkSvxaUtAOq-L7ZZr6SGjNQ
-#lang: en
+lang: es
 
 sass:
   sass_dir: _sass
