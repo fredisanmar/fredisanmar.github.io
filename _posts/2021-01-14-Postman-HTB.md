@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Write-Up Máquina Postman HTB
-date: 2021-01-14 00:28 +0800
-last_modified_at: 2021-01-14 00:28 +0800
+date: 2021-01-14 01:28 +0800
+last_modified_at: 2021-01-14 01:28 +0800
 tags: [htb, writeup, ssh, Redis, Webmin, Linux]
 toc:  true
 ---
