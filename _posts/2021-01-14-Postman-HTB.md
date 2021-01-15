@@ -11,7 +11,7 @@ toc:  true
 ---
 ## Introducción
 
-La máquina Postman corre ins sistema linux de 64 bits y tiene un nivel de deificultad fácil. Para la explotación inicial, vamos a hacer uso de una vulnerabilidad de escritura de ficheros que afecta al servicio Redis entre las versiones 4.0 y 5.0. Posteriormente a esto vamos a utilizar una clave privada que se encentra en un directorio de la maquina para realizar un movimiento lateral y asi conseguir el user. Para la escalada de privilegios, vamos a hacer uso de una vulnerabilidad de rce en el servicio webmin con la que obtendremos una shell reversa.
+La máquina Postman corre un sistema linux de 64 bits y tiene un nivel de dificultad fácil. Para la explotación inicial, vamos a hacer uso de una vulnerabilidad de escritura de ficheros que afecta al servicio Redis entre las versiones 4.0 y 5.0. Posteriormente a esto vamos a utilizar una clave privada que se encentra en un directorio de la maquina para realizar un movimiento lateral y asi conseguir el user. Para la escalada de privilegios, vamos a hacer uso de una vulnerabilidad de rce en el servicio webmin con la que obtendremos una shell reversa.
 
 ---
 ## Escaneo
