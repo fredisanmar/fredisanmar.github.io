@@ -8,7 +8,7 @@ title: About
 ---
 ## Backgroud
 
-Estudié **Administración de sistemas y redes** en el insttituso superior de estudios profesionales del CEU. Esto me brindó la oportunidad de aprender las bases del funcionamiento y la gestión de sistemas informáticos y redes. 
+Estudié **Administración de sistemas y redes** en el instituto superior de estudios profesionales del CEU. Esto me brindó la oportunidad de aprender las bases del funcionamiento y la gestión de sistemas informáticos y redes. 
 
 Posteriormente, Estudié un **master en hacking ético** también en el instituto superior superior de estudios profesionales del CEU. Durante este curso aprendí las técnicas básicas utilizadas en un entorno de red team.
 
