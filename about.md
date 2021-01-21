@@ -15,8 +15,6 @@ Posteriormente, Estudié un **master en hacking ético** también en el institut
 ---
 ## Experiencia
 
----
-
 * Jun 2018 - Jul 2018: Administrador de sistemas en Mnemo.
 * Mar 2019 - Jun 2019: Becario L1 CyberSecurity operator(EDC) en Deloitte.
 
