@@ -13,7 +13,7 @@ Estudié **Administración de sistemas y redes** en el insttituso superior de es
 Posteriormente, Estudié un **master en hacking ético** también en el instituto superior superior de estudios profesionales del CEU. Durante este curso aprendí las técnicas básicas utilizadas en un entorno de red team.
 
 ---
-## Experiencia
+## Experiencia laboral
 
 * Jun 2018 - Jul 2018: Administrador de sistemas en Mnemo.
 * Mar 2019 - Jun 2019: Becario L1 CyberSecurity operator(EDC) en Deloitte.
