@@ -95,7 +95,7 @@ Si accedemos desde la web a ese fichero, nos aparecerá la password del user adm
 
 ![Compromised-admin-pass](/assets/imagenes/2021-01-23-compromised-HTB/Compromised-admin-pass.png)
 
-  - URL: (http://10.10.10.207/shop/admin/.log2301c9430d8593ae.txt)
+  - URL: [http://10.10.10.207/shop/admin/.log2301c9430d8593ae.txt](http://10.10.10.207/shop/admin/.log2301c9430d8593ae.txt)
   - Contenido: User: admin Passwd: theNextGenSt0r3!~
 
 Enumerando un poco más en profundidad los directorios y los ficheros, nos encontramos un fichero interesante llamado config.inc.php dentro del directorio /shop/includes. En este fichero, nos encontramos con unas credenciales de root para mysql que nos serviran más adelante.
@@ -123,16 +123,16 @@ Una vez tenemos el backup bien enumerado, vamos a proceder a hacer uso de las cr
 
 ![Compromised-login](/assets/imagenes/2021-01-23-compromised-HTB/Compromised-login.png)
 
-  - URL: (http://10.10.10.207/shop/admin/login.php)
+  - URL: [http://10.10.10.207/shop/admin/login.php](http://10.10.10.207/shop/admin/login.php)
 
 una vez logeados, veremos que la version de litecart que esta corriendo es la 2.1.2, la cual es vulnerable a *Arbitrary File Upload*.
 
   - Producto y versión: Litecart 2.1.2
   - CVE: [CVE-2018-12256](https://www.cvedetails.com/cve-details.php?cve_id=CVE-2018-12256)
-  - Exploit: (https://www.exploit-db.com/exploits/45267)
+  - Exploit: [https://www.exploit-db.com/exploits/45267](https://www.exploit-db.com/exploits/45267)
 
 En este caso la vulnerabilidad se encuentra en el modulo vqmod, el cual permite subir ficheros xml, pero no realiza una comprobación correcta de los mismos, ya que solo comprueba el parametro content-type. Esto deriva en la posibilidad de subir fichero de otro tipo.
-  - vQmod Docs: (http://docs.opencart.com/en-gb/administration/vqmod/) 
+  - vQmod Docs: [http://docs.opencart.com/en-gb/administration/vqmod/](http://docs.opencart.com/en-gb/administration/vqmod/) 
 
 En este caso queremos subir un fichero php con la funcion `phpinfo()` para comprobar si tenemos alguna limitación.
 En mi caso el exploit que lo hace de manera aoutmatica no me funciono, por lo que voy a hacerlo de manera manual utilizando burpsuite.
@@ -145,7 +145,7 @@ Una vez hemos subido nuestro phpinfo.php vamos a comprobar que podemos y que no 
 ![Compromised-disabled-funcs-php](/assets/imagenes/2021-01-23-compromised-HTB/Compromised-disabled-functions-php.png)
 
 En este caso tenemos muchas funciones desanlilitadas, entre ellas system,passthru,popen,shell_exec,proc_open,exec...
-Esta funciones son las que se utilizan genralmente para obtener una shell. Realizando investigaciones sobre posibles formas de bypassear esas Disabled_Functions encontre en exploitdb una webshell que nos permite bypassear dichas restricciones (https://www.exploit-db.com/exploits/47462).
+Esta funciones son las que se utilizan genralmente para obtener una shell. Realizando investigaciones sobre posibles formas de bypassear esas Disabled_Functions encontre en exploitdb una webshell que nos permite bypassear dichas restricciones [https://www.exploit-db.com/exploits/47462](https://www.exploit-db.com/exploits/47462).
 Esta webshell hay que modificarla, ya que esta hecha de tal forma que solo ejecuta un comando. Si **pwn("uname -a");** lo cambiamos por **pwn($_REQUEST['cmd']);;** podemos pedirle el comando que queramos a traves del parametro `cmd`.
 
 Adicionalmente a esto y para hacer la explotación de la maquina más fácil, he desarrollado una pequeña herramienta para hacer los requests de una manera mas rápida y dinámica.
@@ -230,14 +230,14 @@ Una vez tenemos el Usuario, vamos a proceder a enumerar la máquina en busca de 
 
 Llama la atencion que el md5 de el fichero pam_unix.so no coincida con el original. Esto puede significar que el atacante se ha aprovechado de una vulnerabilidad de la pam y a instalado ahí una [backdoor](https://github.com/zephrax/linux-pam-backdoor).
 
-  * (https://x-c3ll.github.io/posts/PAM-backdoor-DNS/)
+  * [https://x-c3ll.github.io/posts/PAM-backdoor-DNS/](https://x-c3ll.github.io/posts/PAM-backdoor-DNS/)
 
 ---
 ## Escalada de privilegios
 
 Para la escalada de privilegios, vamos a descargar en nuestra máquina el binario `pam_unix.so` y vamos a analizarlo con radare2:
   * scp sysadmin@10.10.10.207:/lib/x86_64-linux-gnu/security/pam_unix.so ./pam_unix.so
-![Compromised-pam-so](/assets/imagenes/2021-01-23-compromised-HTB/Compromised-pam-so.png)
+  ![Compromised-pam-so](/assets/imagenes/2021-01-23-compromised-HTB/Compromised-pam-so.png)
 
 Una vez en nuestra maquina vamos a proceder a analizarlo con radare2. En mi caso estoy utilizando la interfaz gráfica de radare2 llamada cutter.
 
