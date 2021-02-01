@@ -38,7 +38,7 @@ En el puerto 3690 nos encontramos con un [Apache Subversion](https://en.wikipedi
 
 ### Puerto 5985
 
-En el Puerto 5985 nos encontramos con un Microsoft HTTPAPI.
+En el Puerto 5985 nos encontramos con un Microsoft HTTPAPI,lo cual corresponde con el servicio WinRM
 
 ---
 ## Enumeración
