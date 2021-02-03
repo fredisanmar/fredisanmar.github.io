@@ -9,7 +9,7 @@ toc:  true
 ![Brainfuck-info-card](/assets/imagenes/2021-02-03-brainfuck-HTB/Brainfuck-info-card.png)
 
 ## Introducción
-La máquina brainfuck corre un sistema linux de 64 bits y esta catalogada como insana. La explotación de esta máquina se basa en una vulnerabilidad de un plugin de wordpress con la que vamos a poder obtener acceso con el usuario admin. Una vez dentro veremos que hay un plugin instalado, con el que vamos a poder ver una contraseña para el servicio smtp. Despues obtendremos acceso a un foro en el cual tendremos una parte cifrada con vigenère y gracias a tener ciertas similitudes entre el texto cifrado y en texto plano podremos sacar la clave de cifra y extraer asi una clave RSA. Para obtener el usuario, tendremos que hacer un ataque de fuerza bruta a la clave privada RSA para conectarnos por SSH al usuario. Una vez dentro, veremos varios ficheros que nos permitirán obtener la flag de root.
+La máquina brainfuck corre un sistema linux de 64 bits y esta catalogada como insana. La explotación de esta máquina se basa en una vulnerabilidad de un plugin de wordpress con la que vamos a poder obtener acceso con el usuario admin. Una vez dentro veremos que hay un plugin instalado, con el que vamos a poder ver una contraseña para el servicio smtp. Después obtendremos acceso a un foro en el cual tendremos una parte cifrada con vigenère y gracias a tener ciertas similitudes entre el texto cifrado y en texto plano podremos sacar la clave de cifra y extraer asi una clave RSA. Para obtener el usuario, tendremos que hacer un ataque de fuerza bruta a la clave privada RSA para conectarnos por SSH al usuario. Una vez dentro, veremos varios ficheros que nos permitirán obtener la flag de root.
 
 ---
 ## Escaneo
@@ -68,8 +68,8 @@ El puerto 443 corresponde corresponde con un servidor HTTP. En este caso, el ser
 ---
 ## Enumeración
 
-Viendo el escaneo de nmap, podemos deducir que en la maquina hay 1 dominio raiz y 2 subdominios:
-1. Dominio raiz:
+Viendo el escaneo de nmap, podemos deducir que en la maquina hay 1 dominio raíz y 2 subdominios:
+1. Dominio raíz:
    * brainfuck.htb
 2. Subdominios:
    1.  www.brainfuck.htb
@@ -82,7 +82,7 @@ Si accedemos a https://brainfuck.htb, nos encontramos con una página de wordpre
 Ya que sabemos que es wordpress, vamos a analizar la plataforma con la herramienta wpscan.
 * wpscan --url https://brainfuck.htb/ --disable-tls-checks
 
-```yml
+```s
 _______________________________________________________________
          __          _______   _____
          \ \        / /  __ \ / ____|
@@ -187,7 +187,7 @@ Interesting Finding(s):
 
 Vamos a enumerar los usuarios para realizar la exploitación
 
-```yml
+```s
 [i] User(s) Identified:
 
 [+] admin
@@ -320,7 +320,7 @@ Una vez accedamos por SSH, vemos que en la carpeta del user, tenemos ya la flag 
 
 ## Lectura de la flag de root
 
-En esta maquina, la escalada de privilegios, no es una escalada al uso, ya que en esta máquina no vamos a obtener root. En esta maquina, tenemos que leer el contenido de output.txt que esta cifrado utilizando factorización de RSA. 
+En esta máquina, la escalada de privilegios, no es una escalada al uso, ya que en esta máquina no vamos a obtener root. En esta máquina, tenemos que leer el contenido de output.txt que esta cifrado utilizando factorización de RSA. 
 
 ```s
 nbits = 1024
@@ -348,16 +348,20 @@ debug.write(str(e)+'\n')
 ```
 
 Este script, lo que hace es leer /root/root.txt y de ahí abre para escribir output.txt y debug.txt.
-Luego genera p y q siendo valores primos generados aleatoriamente. Despues genera n siendo p*q y genera phi.
+Luego genera p y q siendo valores primos generados aleatoriamente. Después genera n siendo p*q y genera phi.
 Por ultimo cifra la flag de root, la escribe en output.txt y escribe los valores de p, q y e en debug.txt.
 
 Tenemos los siguientes datos:
-* p = 7493025776465062819629921475535241674460826792785520881387158343265274170009282504884941039852933109163193651830303308312565580445669284847225535166520307
-* q = 7020854527787566735458858381555452648322845008266612906844847937070333480373963284146649074252278753696897245898433245929775591091774274652021374143174079
-* e = 30802007917952508422792869021689193927485016332713622527025219105154254472344627284947779726280995431947454292782426313255523137610532323813714483639434257536830062768286377920010841850346837238015571464755074669373110411870331706974573498912126641409821855678581804467608824177508976254759319210955977053997
-
+```
+p = 7493025776465062819629921475535241674460826792785520881387158343265274170009282504884941039852933109163193651830303308312565580445669284847225535166520307
+q = 7020854527787566735458858381555452648322845008266612906844847937070333480373963284146649074252278753696897245898433245929775591091774274652021374143174079
+e = 30802007917952508422792869021689193927485016332713622527025219105154254472344627284947779726280995431947454292782426313255523137610532323813714483639434257536830062768286377920010841850346837238015571464755074669373110411870331706974573498912126641409821855678581804467608824177508976254759319210955977053997
+```
 Y por otro lado tenemos la flag cifrada:
-* ct = 44641914821074071930297814589851746700593470770417111804648920018396305246956127337150936081144106405284134845851392541080862652386840869768622438038690803472550278042463029816028777378141217023336710545449512973950591755053735796799773369044083673911035030605581144977552865771395578778515514288930832915182
+
+```
+ct = 44641914821074071930297814589851746700593470770417111804648920018396305246956127337150936081144106405284134845851392541080862652386840869768622438038690803472550278042463029816028777378141217023336710545449512973950591755053735796799773369044083673911035030605581144977552865771395578778515514288930832915182
+```
 
 Sabiendo todo esto, vamos a usar la herramienta [RsaCtfTool](https://github.com/Ganapati/RsaCtfTool) para factorizar y descifrar la flag.
 
@@ -373,7 +377,7 @@ INT (big endian) : 2460405202940138604998029695378428707905924586788096694424666
 INT (little endian) : 71904489270390286963897421081584105669996639957482208029254042136896654474008309377900795222770169858295550800500193898049173843287416681363210582983968669494241908145916652778830648638955652625050463026993820664542503401605002346194560031250867811874988161020742297439368025796547799980950578223485791764480
 STR : b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x006efc1a5dbb8904751ce6566a305bb8ef'
 ```
-Ahora tenemos que pasar a hex el valor de big endian.
+Ahora tenemos que pasar de hex a ascii el valor de big endian.
 
 ```bash
 python -c "print format(24604052029401386049980296953784287079059245867880966944246662849341507003750, 'x').decode('hex')"
