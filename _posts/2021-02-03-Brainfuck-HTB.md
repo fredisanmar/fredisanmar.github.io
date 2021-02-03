@@ -82,7 +82,7 @@ Si accedemos a https://brainfuck.htb, nos encontramos con una página de wordpre
 Ya que sabemos que es wordpress, vamos a analizar la plataforma con la herramienta wpscan.
 * wpscan --url https://brainfuck.htb/ --disable-tls-checks
 
-```s
+```
 _______________________________________________________________
          __          _______   _____
          \ \        / /  __ \ / ____|
