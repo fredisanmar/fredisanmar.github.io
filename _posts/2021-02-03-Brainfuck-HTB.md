@@ -9,7 +9,7 @@ toc:  true
 ![Brainfuck-info-card](/assets/imagenes/2021-02-03-brainfuck-HTB/Brainfuck-info-card.png)
 
 ## Introducción
-La máquina brainfuck corre un sistema linux de 64 bits y esta catalogada como insana. La explotación de esta máquina se basa en una vulnerabilidad de un plugin de wordpress con la que vamos a poder obtener acceso con el usuario admin. Una vez dentro veremos que hay un plugin instalado, con el que vamos a poder ver una contraseña para el servicio smtp. Despues obtendremos acceso a un foro en el cual tendremos una parte cifrada con vigenère y gracias a tener ciertas similitudes entre el texto cifrado y en texto plano podremos sacar la clave de cifra y extraer asi una clave RSA. Para obtener el usuario, tendremos que hacer un ataque de fuerza bruta a la clave privada RSA para conectarnos por ssh al usuario. Una vez dentro, veremos varios ficheros que nos permitirán obtener la flag de root.
+La máquina brainfuck corre un sistema linux de 64 bits y esta catalogada como insana. La explotación de esta máquina se basa en una vulnerabilidad de un plugin de wordpress con la que vamos a poder obtener acceso con el usuario admin. Una vez dentro veremos que hay un plugin instalado, con el que vamos a poder ver una contraseña para el servicio smtp. Despues obtendremos acceso a un foro en el cual tendremos una parte cifrada con vigenère y gracias a tener ciertas similitudes entre el texto cifrado y en texto plano podremos sacar la clave de cifra y extraer asi una clave RSA. Para obtener el usuario, tendremos que hacer un ataque de fuerza bruta a la clave privada RSA para conectarnos por SSH al usuario. Una vez dentro, veremos varios ficheros que nos permitirán obtener la flag de root.
 
 ---
 ## Escaneo
