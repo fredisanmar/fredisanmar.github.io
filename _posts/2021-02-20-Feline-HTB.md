@@ -7,7 +7,7 @@ tags: [htb, writeup, linux, tomcat, java-deserialization, saltstack, docker, soc
 toc:  true
 ---
 
-![feline-card](../assets/imagenes/2021-02-20-feline-HTB/feline-card.png)
+![feline-card](/assets/imagenes/2021-02-20-feline-HTB/feline-card.png)
 
 ---
 ## Introducción
@@ -107,7 +107,7 @@ Para esta comprobacion solo necesitamos el archivo groovy.session
 
 Viendo el error de java que nos devuelve el fichero groovy.session, vemos que cumplimos todas las condiciones para poder obtener una rce a traves de la vulnerabilidad antes mencionada.
 
-![feline-check-rce](../assets/imagenes/2021-02-20-feline-HTB/feline-check-rce.png)
+![feline-check-rce](/assets/imagenes/2021-02-20-feline-HTB/feline-check-rce.png)
 
 Sabiendo todo esto vamos a proceder a generar el payload con el que vamos a explotar esta vulnerabilidad.
 
@@ -134,7 +134,7 @@ El comando final para generar el payload sería:
 Una vez hemos generado nuestro archivo payload.session lo subimos al servidor y a través de la cookie de sesion lo leemos.
 Esto se da porque tomcat maneja las sesiones a traves de ficheros .session, pero al llamarlos a traves de la cookie de sesión no requiere que le pongamos la extensión ya que la añade de manera automática.
 
-![feline-exploit-rce](../assets/imagenes/2021-02-20-feline-HTB/feline-exploit-rce.png)
+![feline-exploit-rce](/assets/imagenes/2021-02-20-feline-HTB/feline-exploit-rce.png)
 
 con nuestro listener ya levantado vemos que recibimos la conexion.
 
@@ -149,27 +149,27 @@ Como podemos ver somos usuario tomcat.
 ya somos usuario tomcat.
 vamos a ver que tenemos en su home.
 
-![feline-tomcat-home](../assets/imagenes/2021-02-20-feline-HTB/feline-tomcat-home.png)
+![feline-tomcat-home](/assets/imagenes/2021-02-20-feline-HTB/feline-tomcat-home.png)
 
 Vemos que en la carpeta home del usuario tomcat tenemos la flag de user.
 
-![feline-flag-user](../assets/imagenes/2021-02-20-feline-HTB/feline-flag-user.png)
+![feline-flag-user](/assets/imagenes/2021-02-20-feline-HTB/feline-flag-user.png)
 
 En la carpeta del usuario no podemos escribir debido a que el propietario es root y no el propio usuario tomcat.En tmp cada minuto aproximadamente se borra el contenido, por lo que lo que subamos a esa carpeta durará poco tiempo en la máquina.
 
 Por esto vamos a subir el script de enumeracion a la carpeta /opt/tomcat/logs
 
-![feline-upload-linpeas](../assets/imagenes/2021-02-20-feline-HTB/feline-upload-linpeas.png)
+![feline-upload-linpeas](/assets/imagenes/2021-02-20-feline-HTB/feline-upload-linpeas.png)
 
 
 Del output del script de enumeración, podemos deducir de primeras que la maquina en un principio cuenta con el servicio docker, ya que tenemos una interfaz llamada *docker0*, que es la que se activa por defecto con el servicio docker.
 
-![feline-net-interfaces](../assets/imagenes/2021-02-20-feline-HTB/feline-net-interfaces.png)
+![feline-net-interfaces](/assets/imagenes/2021-02-20-feline-HTB/feline-net-interfaces.png)
 
 La máquina cuenta también con dos puertos abiertos que a mi por lo menos me llamaron mucho la atención los cuales son 4505 y 4506, ya que son puertos
 contiguos.
 
-![feline-open-ports](../assets/imagenes/2021-02-20-feline-HTB/feline-open-ports.png)
+![feline-open-ports](/assets/imagenes/2021-02-20-feline-HTB/feline-open-ports.png)
 
 Vamos a buscar info sobre el posible servicio que esta corriendo en los puertos.
 Empezamos por el 4505:
@@ -197,8 +197,8 @@ En la pagina de wikipedia de este framework, podemos ver al final un apartado de
 
 Con chisel vamos a exponer el puerto 4506 para poder lanzar desde nuestra máquina los checkeos correspondientes.
 
-![feline-chisel-server](../assets/imagenes/2021-02-20-feline-HTB/feline-chisel-server.png)
-![feline-chisel-client](../assets/imagenes/2021-02-20-feline-HTB/feline-chisel-client.png)
+![feline-chisel-server](/assets/imagenes/2021-02-20-feline-HTB/feline-chisel-server.png)
+![feline-chisel-client](/assets/imagenes/2021-02-20-feline-HTB/feline-chisel-client.png)
 
 
 para la explotacion de este servicio vamos a usar un exploit de exploitdb el cual implemeta
@@ -208,22 +208,22 @@ checks para ver si realmente el servicio es vulnerable
 Este exploit su aprovecha de los CVEs cve-2020-11651 y cve-2020-1652.
 Como podemos observar, nos confirma que que el servico es vulnerable
 
-![feline-check-exploit](../assets/imagenes/2021-02-20-feline-HTB/feline-check-exploit.png)
+![feline-check-exploit](/assets/imagenes/2021-02-20-feline-HTB/feline-check-exploit.png)
 
 vamos a explotarlo.
 
-![feline-exploit-saltmaster](../assets/imagenes/2021-02-20-feline-HTB/feline-exploit-saltmaster.png)
-![feline-revshell-exploit](../assets/imagenes/2021-02-20-feline-HTB/feline-revshell-exploit.png)
+![feline-exploit-saltmaster](/assets/imagenes/2021-02-20-feline-HTB/feline-exploit-saltmaster.png)
+![feline-revshell-exploit](/assets/imagenes/2021-02-20-feline-HTB/feline-revshell-exploit.png)
 
 Somos usuario root. En un principio ya deberíamos tener la máquina, pero si nos vamos a
 la raiz y ejecutamos ls -al vemos que realmente somos root pero dentro de un contenedor
 de docker.
 
-![feline-check-docker](../assets/imagenes/2021-02-20-feline-HTB/feline-check-docker.png)
+![feline-check-docker](/assets/imagenes/2021-02-20-feline-HTB/feline-check-docker.png)
 
 vamos a subir el script de linpeas para ver por donde podemos intentar escalar privilegios. Una vez subido y ejecutado, nos reseña que tenemos permisos de lectura y escritura sobre los sockets del servicio docker. 
 
-![feline-dockershockets-hacktricks](../assets/imagenes/2021-02-20-feline-HTB/feline-dockershockets-hacktricks.png)
+![feline-dockershockets-hacktricks](/assets/imagenes/2021-02-20-feline-HTB/feline-dockershockets-hacktricks.png)
 
 * https://www.redtimmy.com/a-tale-of-escaping-a-hardened-docker-container/
 
@@ -231,7 +231,7 @@ Vamos a proceder a la explotación de docker:
 
 1. Primero listamos las imagenes.
 
-    ![feline-docker-list-images](../assets/imagenes/2021-02-20-feline-HTB/feline-docker-list-images.png)
+    ![feline-docker-list-images](/assets/imagenes/2021-02-20-feline-HTB/feline-docker-list-images.png)
     Vemos que tenemos una imagen llamada sandbox.
 
 2. Vamos a usar dicha imagen para realizar la escalada de privilegios.
