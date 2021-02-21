@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Write-Up Máquina Brainfuck HTB | Preparación OSCP
+title: Write-Up Máquina Feline HTB 
 date: 2021-02-20 16:00 +0800
 last_modified_at: 2021-02-20 16:10 +0800
 tags: [htb, writeup, linux, tomcat, java-deserialization, saltstack, docker, sockets]
