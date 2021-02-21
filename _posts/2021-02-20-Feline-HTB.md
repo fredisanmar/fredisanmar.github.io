@@ -16,7 +16,7 @@ La máquina feline es una máquina linux de 64 bits la cual corre una versión d
 
 ---
 ## Escaneo
-```yml
+```
 nmap -p- -sV -sC --min-rate=5000 10.10.10.205 -Pn --open
 Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be
 slower.
