@@ -89,7 +89,7 @@ Vamos a comprobar ahora el parametro filename.
 Vemos que al meter caracteres extraños en el parametro filename nos devuelve el mensaje de invalid filename.
 Vamos a hacer una ultima comprobacion, la cual consiste en mandar el parametro filename vacio.
 
-![feline-curl-6](../assets/imagenes/2021-02-20-feline-HTB/feline-curl-6.png)
+![feline-curl-6](/assets/imagenes/2021-02-20-feline-HTB/feline-curl-6.png)
 
 Como podemos ver el servidor web nos devuelve un mensaje de error muy interesante.
 De este mensaje de error podemos deducir 2 cosas:
@@ -246,4 +246,4 @@ Vamos a proceder a la explotación de docker:
     ```
     curl -XPOST --unix-socket/var/run/docker.sock http://localhost/containers/fdf541aa409a744d6658e70d85df15d9c3a2693dd4af7925622144fab21f0e88/ start
     ```
-    ![feline-revshell-root](../assets/imagenes/2021-02-20-feline-HTB/feline-revshell-root.png)
+    ![feline-revshell-root](/assets/imagenes/2021-02-20-feline-HTB/feline-revshell-root.png)
